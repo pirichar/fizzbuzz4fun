@@ -6,7 +6,7 @@
 #    By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 11:30:02 by pirichar          #+#    #+#              #
-#    Updated: 2023/09/23 13:24:24 by pirichar         ###   ########.fr        #
+#    Updated: 2023/09/23 13:40:05 by pirichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,14 +41,14 @@ VPATH		= $(SRC)
 CC			= gcc
 CXX 		= g++
 CFLAGS		= -Wall -Werror -Wextra -g -pthread 
-CXXFLAGS = -Wall -Werror -Wextra -g -pthread
+CXXFLAGS = -Wall -Werror -Wextra -g -pthread -std=c++20
 
 # Clean command
 RM			= rm -rf
 
 # Include and library paths for Google Test
-GTEST_INC = -I../googletest/googletest/include
-GTEST_LIB = -L../googletest/build/lib -lgtest -lgtest_main
+GTEST_INC = -I googletest/googletest/include
+GTEST_LIB = -L googletest/build/lib -lgtest -lgtest_main
 
 
 # Targets
