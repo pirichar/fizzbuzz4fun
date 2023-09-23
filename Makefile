@@ -6,7 +6,7 @@
 #    By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 11:30:02 by pirichar          #+#    #+#              #
-#    Updated: 2023/09/23 14:57:09 by pirichar         ###   ########.fr        #
+#    Updated: 2023/09/23 15:17:54 by pirichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,14 +75,6 @@ test: $(OBJ) $(TEST_OBJS) $(OBJS_WITHOUT_MAIN) $(OBJ)/my_test.o
 	@$(CXX) $(CXXFLAGS) $(GTEST_INC) $(TEST_OBJS) $(OBJS_WITHOUT_MAIN) $(GTEST_LIB) -o $(TEST_SRC)/my_test
 	@echo "COMPILING TESTS DONE"
 	@./$(TEST_SRC)/my_test
-
-# # Compile test code and link with Google Test
-# test: $(OBJ) $(TEST_OBJS) $(OBJS) $(OBJ)/my_test.o
-# 	@$(CXX) $(CXXFLAGS) $(GTEST_INC) $(TEST_OBJS) $(OBJS) $(GTEST_LIB) -o $(TEST_SRC)/my_test
-# 	@echo "COMPILING TESTS DONE"
-# 	@./$(TEST_SRC)/my_test
-
-
 
 
 all:		$(NAME)

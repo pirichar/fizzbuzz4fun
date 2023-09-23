@@ -14,3 +14,10 @@ mkdir build
 cd build  
 cmake ..  
 make  
+
+
+### To run the program :
+
+Witin the build directory :  
+make  
+./fizz_buzz with the number you want to test
