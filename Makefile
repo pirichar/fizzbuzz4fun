@@ -6,7 +6,7 @@
 #    By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 11:30:02 by pirichar          #+#    #+#              #
-#    Updated: 2023/09/23 13:40:05 by pirichar         ###   ########.fr        #
+#    Updated: 2023/09/23 14:57:09 by pirichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,21 +27,24 @@ TEST_SRCS = $(addprefix $(TEST_SRC)/, $(TEST_CFILES))
 TEST_OBJS = $(addprefix $(OBJ)/, $(TEST_OFILES))
 
 # Source files
-CFILES		= fizz_buzz.c utils.c main.c
+CFILES		= fizz_buzz.c utils.c 
+MFILES		= main.c
 HFILES		= colors.h fizz_buzz.h
 OFILES		= $(CFILES:.c=.o)
-SRCS		= $(addprefix $(SRC)/, $(CFILES))
+MOFILES		= $(MFILES:.c=.o)
+SRCS		= $(addprefix $(SRC)/, $(CFILES) $(MFILES))
 HEADERS		= $(addprefix $(INC)/, $(HFILES))
 
 # Object files
-OBJS		= $(addprefix $(OBJ)/, $(OFILES))
+OBJS		= $(addprefix $(OBJ)/, $(OFILES) $(MOFILES))
+OBJS_WITHOUT_MAIN		= $(addprefix $(OBJ)/, $(OFILES))
 VPATH		= $(SRC)
 
 # Compiler and flags
 CC			= gcc
 CXX 		= g++
 CFLAGS		= -Wall -Werror -Wextra -g -pthread 
-CXXFLAGS = -Wall -Werror -Wextra -g -pthread -std=c++20
+CXXFLAGS 	= -Wall -Werror -Wextra -g -pthread -std=c++20
 
 # Clean command
 RM			= rm -rf
@@ -67,20 +70,22 @@ $(OBJ):
 			@mkdir -p $(OBJ)
 
 
-
 # Compile test code and link with Google Test
-test: $(OBJ) $(TEST_OBJS) $(OBJS) $(OBJ)/my_test.o
-	@$(CXX) $(CXXFLAGS) $(GTEST_INC) $(TEST_OBJS) $(OBJS) $(GTEST_LIB) -o $(TEST_SRC)/my_test
+test: $(OBJ) $(TEST_OBJS) $(OBJS_WITHOUT_MAIN) $(OBJ)/my_test.o
+	@$(CXX) $(CXXFLAGS) $(GTEST_INC) $(TEST_OBJS) $(OBJS_WITHOUT_MAIN) $(GTEST_LIB) -o $(TEST_SRC)/my_test
 	@echo "COMPILING TESTS DONE"
 	@./$(TEST_SRC)/my_test
+
+# # Compile test code and link with Google Test
+# test: $(OBJ) $(TEST_OBJS) $(OBJS) $(OBJ)/my_test.o
+# 	@$(CXX) $(CXXFLAGS) $(GTEST_INC) $(TEST_OBJS) $(OBJS) $(GTEST_LIB) -o $(TEST_SRC)/my_test
+# 	@echo "COMPILING TESTS DONE"
+# 	@./$(TEST_SRC)/my_test
+
 
 
 
 all:		$(NAME)
-
-bonus :		$(OBJ) $(OBJBNS)
-			@$(CC) $(OBJBNS) -o $(NAME)
-			@echo "COMPILING BONUS DONE"
 
 clean:
 			@$(RM) $(OBJS) $(OBJBNS) $(OBJ)
@@ -89,6 +94,3 @@ fclean:		clean
 			@$(RM) $(NAME)
 
 re:			fclean all
-
-norme:
-			@norminette $(SRCS) $(HEADERS) $(GETNEXT) $(BONUSNORM)

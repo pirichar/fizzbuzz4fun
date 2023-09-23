@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 11:30:12 by pirichar          #+#    #+#             */
-/*   Updated: 2023/09/23 11:41:08 by pirichar         ###   ########.fr       */
+/*   Updated: 2023/09/23 13:47:39 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "colors.h"
 
 
-/*
+/* 
 	Function that takes an int as an input
 	It will iterate from 1 up to that number writing fizz or buzz when the multiple of 3 or 5 are met
 
