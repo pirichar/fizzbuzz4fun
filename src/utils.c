@@ -3,7 +3,7 @@
 /*
 	So all these functions from ft_strlen to ft_atoi are for my atoi sorry
 */
-int ft_strlen(const char *str){
+static int ft_strlen(const char *str){
 	int i;
 
 	i = 0;
@@ -13,7 +13,7 @@ int ft_strlen(const char *str){
 	return i;
 }
 
-int	ft_char_count(int n)
+static int	ft_char_count(int n)
 {
 	int	count;
 
@@ -30,7 +30,7 @@ int	ft_char_count(int n)
 	return (count);
 }
 
-char	*ft_swap_neg(char *str)
+static char	*ft_swap_neg(char *str)
 {
 	int	i;
 	int	ri;
@@ -51,7 +51,8 @@ char	*ft_swap_neg(char *str)
 	return (str);
 }
 
-char	*ft_swap(char *str)
+
+static char	*ft_swap(char *str)
 {
 	int	i;
 	int	ri;

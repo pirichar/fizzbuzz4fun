@@ -6,14 +6,15 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 11:30:12 by pirichar          #+#    #+#             */
-/*   Updated: 2023/09/23 13:47:39 by pirichar         ###   ########.fr       */
+/*   Updated: 2023/09/23 15:54:42 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "colors.h"
-
+#include <stdlib.h>
+#include <string.h>
 
 /* 
 	Function that takes an int as an input
@@ -22,13 +23,9 @@
 */
 
 //utils.c
-int ft_strlen(const char *str);
-int	ft_char_count(int n);
-char	*ft_swap_neg(char *str);
-char	*ft_swap(char *str);
 char	*ft_itoa(long long n);
 
 //fizz_buzz.c
-char* fizz_buzz(int i, char* str);
+char* fizz_buzz(int i);
 
 
